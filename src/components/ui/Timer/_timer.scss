@@ -1,0 +1,65 @@
+/*************************/
+/////// GENERAL VARS //////
+/*************************/
+
+//TODO vars
+
+/*************************/
+/////// CUSTOM VARS /////// 
+/*************************/
+
+//TODO vars
+
+/*************************/
+///// TYPOGRAPHY VARS /////
+/*************************/
+
+//TODO vars
+
+/*************************/
+///// COMPONENT CODE //////
+/*************************/
+.timer{
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid white;
+    border-radius: 50%;
+
+    &__num-container {
+        color: #4286fa;
+    }
+
+    &__start-btn {
+        position: absolute;
+        bottom: 20px;
+        color: white;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+}
+
+@include SmallDevice{
+    .timer{
+    }
+}
+
+
+@include MediumDevice{
+    .timer{
+    }
+}
+
+@include OnEmbedDevice(){
+    .timer{
+
+    }
+}
+
+
+/*************************/
+/////// CUSTOM CODE /////// 
+/*************************/
+//TODO code
