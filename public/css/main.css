@@ -2684,6 +2684,13 @@ p {
     color: white;
     padding: 10px 20px;
     cursor: pointer; }
+  .timer__reset-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer; }
 
 @media only screen and (min-width : 601px) {}@media only screen and (min-width : 993px) {}/*************************/
 /*************************/

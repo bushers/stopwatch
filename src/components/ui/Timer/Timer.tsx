@@ -7,25 +7,55 @@ export interface TimerProps{
 
 export interface TimerState{
     timerRunning:boolean;
+    startTime:number;
+    timeElapsed:number;
 }
 
 
 export class Timer extends React.Component<TimerProps, TimerState>{
     el:HTMLDivElement;
-    date:Date;
+    timer:any;
     constructor(p:TimerProps){
         super(p);
         this.state = {
-            timerRunning: false
+            timerRunning: false,
+            startTime: 0,
+            timeElapsed: 0
         }
     }
-    
-    toggleTimer = () => {
-        this.setState(prevState => {
-            return {
-                timerRunning: !prevState.timerRunning
-            }
-        })
+
+    componentWillUnmount() {
+        clearInterval(this.timer);
+    }
+
+    incrementInMs = () => {
+        this.timer = setInterval(() => {
+            this.setState(prevState => {
+                return {
+                    timeElapsed: prevState.timeElapsed + 1
+                }
+            });
+        }, 100)
+    }
+
+    startTimer = () => {
+        this.setState({ timerRunning: true }, () => this.incrementInMs());
+    }
+
+    pauseTimer = () => {
+        this.setState({ timerRunning: false }, () => clearInterval(this.timer));
+    }
+
+    resetTimer = () => {
+        this.setState({ timeElapsed: 0 }, () => clearInterval(this.timer));
+    }
+
+    handleClick = () => {
+        if(this.state.timerRunning) {
+            this.pauseTimer();
+        } else {
+            this.startTimer();
+        }
     }
 
     render(){
@@ -35,14 +65,20 @@ export class Timer extends React.Component<TimerProps, TimerState>{
         return (
             <div className={"timer " + cls} ref={e=> this.el= e}>
                 <div className="timer__num-container">
-                    <h1>{`0:00`}</h1>
+                    <h1>{state.timeElapsed}</h1>
                 </div>
 
-                <div className="timer__start-btn" onClick={this.toggleTimer}>
+                <div className="timer__start-btn" onClick={this.handleClick}>
                     {state.timerRunning
                         ? <p>Pause</p>
                         : <p>Start</p>}
                 </div>
+
+                {state.timeElapsed > 0 && (
+                    <div className="timer__reset-btn" onClick={this.resetTimer}>
+                        <p>Reset</p>
+                    </div>
+                )}
             </div>
         )
     }

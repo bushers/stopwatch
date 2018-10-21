@@ -39,6 +39,15 @@
         padding: 10px 20px;
         cursor: pointer;
     }
+
+    &__reset-btn {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        color: white;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
 }
 
 @include SmallDevice{
