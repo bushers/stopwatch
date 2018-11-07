@@ -1,9 +1,0 @@
-module.exports = { contents: "\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar models_1 = require(\"../../models/models\");\r\nexports.STATE_KEY = 'app';\r\nvar WINDOW_VIEWS;\r\n(function (WINDOW_VIEWS) {\r\n    WINDOW_VIEWS[WINDOW_VIEWS[\"SPLASH\"] = 0] = \"SPLASH\";\r\n    WINDOW_VIEWS[WINDOW_VIEWS[\"CONTENT\"] = 1] = \"CONTENT\";\r\n})(WINDOW_VIEWS = exports.WINDOW_VIEWS || (exports.WINDOW_VIEWS = {}));\r\nexports.AppInitState = {\r\n    locale: models_1.INIT_TRANSLATIONS\r\n};\r\nexports.inAppInitialState = {};\r\n//# sourceMappingURL=StateAndProps.js.map",
-dependencies: ["../../models/models"],
-sourceMap: "{\"version\":3,\"file\":\"controllers/App/StateAndProps.js\",\"sourceRoot\":\"\",\"sources\":[\"/src/controllers/App/StateAndProps.ts\"],\"names\":[],\"mappings\":\";;AAEA,8CAAkF;AACrE,QAAA,SAAS,GAAG,KAAK,CAAC;AAW/B,IAAY,YAGX;AAHD,WAAY,YAAY;IACvB,mDAAM,CAAA;IACN,qDAAO,CAAA;AACR,CAAC,EAHW,YAAY,GAAZ,oBAAY,KAAZ,oBAAY,QAGvB;AAKY,QAAA,YAAY,GAAY;IACpC,MAAM,EAAC,0BAAiB;CACxB,CAAA;AAKY,QAAA,iBAAiB,GAAc,EAC3C,CAAA\",\"sourcesContent\":[\"\\nimport * as ReactRedux from 'react-redux'; \\nimport { iActionType, Translation, INIT_TRANSLATIONS } from '../../models/models';\\nexport const STATE_KEY = 'app';\\n\\n\\nexport interface AppProps extends ReactRedux.DispatchProp<any>{\\n\\tappState:AppState;\\n\\tloadData:(e)=>iActionType;\\n\\t// componentName:string;\\n\\t// isMobile:boolean; \\n\\t// injector:any;\\n\\t// dataService:DataService;\\n}\\nexport enum WINDOW_VIEWS {\\n\\tSPLASH, \\n\\tCONTENT\\n}\\n\\nexport interface AppState{\\n\\tlocale:Translation; \\n}\\nexport const AppInitState:AppState = {\\n\\tlocale:INIT_TRANSLATIONS\\n}\\n\\nexport interface inAppState{\\n}\\n\\nexport const inAppInitialState:inAppState = {\\n}\\n\"]}",
-headerContent: undefined,
-mtime: 1540057437870,
-devLibsRequired : undefined,
-ac : undefined,
-_ : {}
-}
